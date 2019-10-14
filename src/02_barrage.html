@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 父元素相对定位 */
+    .container{
+      position: relative; 
+      width:856px;height: 481px;
+    }
+    /* 视频元素绝对定位 居中 */
+  #v3{
+    position:absolute;
+    width: 856px;/*视频宽高*/
+    height: 481px;
+    z-index:0; /*下层*/
+  }    
+    /* 画布元素绝对定位 居中 */
+  #c3{
+    position:absolute;
+    left:0;/*画布位置*/
+    top:0;
+    z-index: 1;/*视频上层*/
+  }
+  </style>
+</head>
+<body>
+  <h3> 弹幕 </h3>
+  <!-- 最外层父元素 -->
+  <div class="container">
+  <!-- 画布 -->
+    <canvas id="c3" width="856" height="481"></canvas>
+  <!-- 视频 -->
+    <video id="v3" src="res/x.mp4" controls></video>
+  </div>  
+  <!-- 用户输入区域 -->
+  <div class="userDiv">
+      <!-- 输入框  -->
+  <input type="text" id="inputMsg" placeholder="祖安人打招呼的方式">
+    <!-- 文字大小的下拉列表  -->
+    <select  id="inputFont">
+      <option value="12px">--请选择</option>
+      <option value="22px">中号</option>
+      <option value="32px">大号</option>
+    </select>
+    <!-- 文字的颜色下拉列表  -->
+    <select  id="inputColor">
+      <option value="#f00">红色</option>
+      <option value="#00f">蓝色</option>
+      <option value="#000">黑色</option>
+    </select>
+    <!-- 发送按钮  -->
+    <input type="button" value="发送" id="inputBtn">
+  </div>
+   <script src="js/msg.js"></script>
+   <script src="js/main.js"></script>
+</body>
+</html>

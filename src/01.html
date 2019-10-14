@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{ text-align: center}
+    canvas{ background:darkturquoise}
+  </style>
+</head>
+<body>
+    <canvas id="c3" width="500" height="400"></canvas>
+    <script>
+      var c3 = document.getElementById("c3");
+      var ctx = c3.getContext("2d");
+      //1:创建图片对象
+      var p3 = new Image();
+      //2:下载指定图片
+      p3.src = "res/p3.png";
+      //3:绑定下载成功事件
+      p3.onload = function(){
+        //3.1:创建两个变量
+        var deg1 = 0;
+        var deg2 = 0;
+        //3.2:创建定时器
+        setInterval(()=>{
+          //清除画布
+         // ctx.clearRect(0,0,500,400);
+        //3.3:保存画笔状态sava
+        ctx.save();
+        //3.4:平移原点 左上角
+        ctx.translate(100,200);
+        //3.5:累加deg1 角度 
+        deg1+=15;
+        //3.6:旋转
+        ctx.rotate(deg1*Math.PI/180);
+        //3.7:绘图
+        ctx.drawImage(p3,0-100,0-50);
+        //3.8:立即恢复
+        ctx.restore();
+        //第二架小飞机
+        //3.9:保存状态
+        ctx.save();
+        //3.10:平移原点  350,200
+        ctx.translate(350,200);
+        //3.11:累加角度  deg2=30
+        deg2+=30;
+        //旋转
+        ctx.rotate(deg2*Math.PI/180);
+        //3.12:绘制小飞机2
+        ctx.drawImage(p3,0-100,0-50);
+       
+        //3.13:恢复状态
+        ctx.restore();
+        },10)
+     }   
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    svg{ background:darkgray}
+  </style>
+</head>
+<body>
+    <svg id="s3" width="500" height="400">
+      <circle cx="250" cy="200" r="100" fill="blue" id="c3" ></circle>
+    </svg>
+    <script>
+      
+      var c3 = document.getElementById("c3");
+      c3.onclick = function(){
+        //核心dom元素  用getAttribute
+       var r = c3.getAttribute("r");
+       r*=1.05;
+       c3.setAttribute("r",r);
+      }
+      //功能:动态创建元素(圆)左上角
+      //1:创建圆
+      var c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+      //2:添加属性 r cx cy fill
+      c.setAttribute("r",50);
+      c.setAttribute("cx",50);
+      c.setAttribute("cy",50);
+      c.setAttribute("fill","#000");
+      //3:将圆添加到画布
+      var s3 = document.getElementById("s3");
+      s3.appendChild(c);
+     // 0:获取画布
+//练习:创建30个大小不同,颜色不同,位置不同,透明度不同,圆
+//当点击圆慢慢变大变淡 最后消失
+    // 1:创建循环执行30次
+    for(var i=0;i<30;i++){
+    // 2:创建圆形
+      var c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    // 3:添加属性  r  cx cy  fill  fill-opacity
+
+    // 4:将圆追加画布
+
+    // 5:将圆绑定点击事件
+
+    //   5.1:圆变大修改半径 r 
+
+    //   5.2:创建定时器修改r *1.05
+
+    //   5.3:圆变淡修改透明度 fill-opacity
+
+    //   5.4:*0.09
+
+    //   5.5:0.5--?0.1  停止定时器
+
+  }
+    </script> 
+</body>
+</html>
